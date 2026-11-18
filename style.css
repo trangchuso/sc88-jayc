@@ -1,0 +1,985 @@
+/* ================= RESET & BIẾN MÀU SẮC ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-orange: #f37124;
+    --primary-gradient: linear-gradient(90deg, #ff8c3b 0%, #f15a22 100%);
+    --card-border: #e69d53;
+    --bg-desktop: #f4e8da;
+    --bg-app: #ffffff;
+    --text-main: #444444;
+    --text-muted: #777777;
+    --app-max-width: 480px; /* Độ rộng khung điện thoại khi xem trên máy tính */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-desktop);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ================= KHUNG CHÍNH (RESPONSIVE PC & MOBILE) ================= */
+.app-wrapper {
+    width: 100%;
+    max-width: var(--app-max-width);
+    background-color: var(--bg-app);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    overflow-x: hidden;
+}
+
+.app-content {
+    flex: 1;
+    padding-bottom: 85px; /* Chừa khoảng trống cho thanh Footer cố định */
+}
+
+/* ================= 1. HEADER (THAY ẢNH BACKGROUND TẠI ĐÂY) ================= */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 56px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Thay đường dẫn ảnh nền Header của bạn tại đây */
+    background-image: url('images/background.webp'), linear-gradient(90deg, #fceabb 0%, #f8b500 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-icon-menu {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.header-mascot {
+    height: 44px;
+    object-fit: contain;
+}
+
+.header-logo img {
+    height: 46px;
+    object-fit: contain;
+    display: block;
+}
+
+.header-promo-img, .header-wheel-img {
+    height: 60px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.fallback-icon {
+    font-size: 22px;
+    color: var(--primary-orange);
+}
+
+/* ================= 2. BANNER TRƯỢT NGANG 6 HÌNH ================= */
+.banner-slider-section {
+    width: 100%;
+    position: relative;
+}
+
+.mainBannerSwiper {
+    width: 100%;
+    aspect-ratio: 25 / 7.5;
+}
+
+.mainBannerSwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tuỳ chỉnh dấu chấm phân trang giống mẫu */
+.mainBannerSwiper .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    background: transparent;
+    border: 1px solid #f37124;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.mainBannerSwiper .swiper-pagination-bullet-active {
+    width: 18px;
+    border-radius: 4px;
+    background: var(--primary-orange);
+    opacity: 1;
+}
+
+/* ================= 3. THANH THÔNG BÁO CHẠY CHỮ ================= */
+.marquee-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: #ffffff;
+}
+
+.marquee-speaker img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+}
+
+.marquee-viewport {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    font-size: 13px;
+    color: #666;
+    animation: marqueeScroll 18s linear infinite;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.btn-notice {
+    position: relative;
+    background: var(--primary-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dot-badge {
+    position: absolute;
+    top: -3px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #ff1e1e;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+/* ================= 4. ĐĂNG KÝ / ĐĂNG NHẬP & ICON CHỨC NĂNG ================= */
+.user-action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px 12px;
+    gap: 10px;
+}
+
+/* Cụm nút viên thuốc Đăng Ký / Đăng Nhập */
+.auth-pill-group {
+    display: flex;
+    align-items: center;
+    width: 195px;
+    height: 40px;
+    border: 1.5px solid var(--primary-orange);
+    border-radius: 25px;
+    background: var(--primary-gradient);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.btn-pill-register {
+    flex: 1;
+    height: 100%;
+    background: #ffffff;
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.btn-pill-login {
+    flex: 1;
+    height: 100%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 4 Icon bên phải */
+.quick-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.quick-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 11px;
+    gap: 4px;
+}
+
+.quick-nav-item img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.icon-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff2e8;
+    color: var(--primary-orange);
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+/* ================= 5. MENU DANH MỤC CUỘN NGANG ================= */
+.category-scroll-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4px 10px 12px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.category-scroll-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Ẩn thanh cuộn Firefox */
+    padding-right: 22px;
+}
+
+.category-scroll-list::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn Chrome/Safari */
+}
+
+.category-tab {
+    min-width: 68px;
+    height: 74px;
+    border-radius: 10px;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.category-tab img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.category-tab span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 64px;
+}
+
+/* Trạng thái đang chọn (Tab Hot) */
+.category-tab.active {
+    background: linear-gradient(180deg, #ffd3b6 0%, #fff5ee 100%);
+    border-color: #f7b286;
+}
+
+.category-tab.active span {
+    color: var(--primary-orange);
+}
+
+.scroll-next-btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #999;
+    font-size: 13px;
+    padding: 8px 4px;
+    cursor: pointer;
+}
+
+/* ================= 6. LƯỚI GAME 3 CỘT (SỬ DỤNG ẢNH KHUNG CARD-FRAME.PNG) ================= */
+.game-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 12px 10px;
+}
+
+.game-card {
+    position: relative;
+    /* Cố định đúng tỷ lệ gốc của file ảnh khung (284 x 391) để không bị méo viền */
+    aspect-ratio: 284 / 391;
+    background-image: url('images/khung.avif');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none; /* Bỏ viền CSS vì ảnh khung đã có sẵn viền cam */
+    border-radius: 13px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.game-card:active {
+    transform: scale(0.97);
+}
+
+/* 1. Thanh trên cùng (Logo nhà cung cấp & nút sao) - Chiếm ~20% chiều cao khung */
+.card-top-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    padding: 4px 6px 0;
+    flex-shrink: 0;
+}
+
+.badge-best {
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.provider-logo {
+    height: 60px;
+    max-width: 62px;
+    object-fit: contain;
+    display: block;
+}
+
+.fav-btn {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: none;
+    background: #e0e0e0;
+    color: #ffffff;
+    font-size: 9.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.fav-btn.active {
+    background: #ff9800;
+    color: #fff;
+}
+
+/* 2. Khu vực hiển thị ảnh nhân vật / icon game - Chiếm ~66.5% chiều cao khung */
+.card-thumb {
+    width: 100%;
+    height: 66.5%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Hàng 1 (Casino Sexy, DG, Saba): Nhân vật đứng vừa khít trên vạch cam của ảnh khung */
+.lobby-style .card-thumb {
+    padding: 0 4px;
+}
+
+.lobby-style .card-thumb img {
+    width: 95%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    display: block;
+}
+
+/* Hàng 2, 3, 4 (Game Slot): Icon game vuông nằm gọn giữa lòng trắng của khung */
+.slot-style .card-thumb.square-thumb {
+    align-items: center;
+    padding: 2px 11px 6px;
+}
+
+.slot-style .card-thumb.square-thumb img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1.5px solid #e7c078;
+}
+
+/* 3. Thanh chữ tiêu đề - Khớp chính xác vào dải màu cam sẵn có dưới đáy ảnh khung (13.5%) */
+.card-title-bar {
+    height: 13.5%;
+    background: transparent; /* Trong suốt để hiện dải cam của ảnh card-frame.png */
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+/* ================= 7. BANNER NỔI BÊN PHẢI ================= */
+.floating-promo-box {
+    position: fixed;
+    bottom: 82px;
+    /* Căn sát lề phải của khung 480px trên cả PC và Mobile */
+    right: max(8px, calc((100vw - var(--app-max-width)) / 2 + 8px));
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-item {
+    position: relative;
+    width: 92px;
+}
+
+.floating-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.close-float-btn {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* ================= 8. FOOTER (THAY ẢNH BACKGROUND TẠI ĐÂY) ================= */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: var(--app-max-width);
+    height: 68px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    /* Thay đường dẫn ảnh nền Footer của bạn tại đây */
+    background-image: url('images/footer.avif'), linear-gradient(180deg, #fffDF9 0%, #fce6c9 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+    padding: 0 6px;
+}
+
+.footer-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #7a7a7a;
+    font-size: 11.5px;
+    font-weight: 500;
+    gap: 4px;
+    flex: 1;
+}
+
+.footer-nav-item img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.footer-nav-item .fallback-icon {
+    font-size: 22px;
+    color: #7a7a7a;
+}
+
+.footer-nav-item.active,
+.footer-nav-item.active .fallback-icon {
+    color: var(--primary-orange);
+    font-weight: 700;
+}
+/* ================= 9. MODAL ĐĂNG NHẬP & ĐĂNG KÝ ================= */
+.auth-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--app-max-width);
+    height: 100vh;
+    background: #ffffff;
+    z-index: 999;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+}
+
+.auth-modal-overlay.show {
+    display: flex;
+    animation: fadeInModal 0.2s ease-out;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translate(-50%, 15px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.auth-modal-container {
+    padding: 14px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Nút mũi tên quay lại */
+.auth-top-nav {
+    display: flex;
+    align-items: center;
+}
+
+.auth-back-btn {
+    background: none;
+    border: none;
+    color: var(--primary-orange);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px 4px 0;
+}
+
+/* Logo chính giữa */
+.auth-logo-box {
+    text-align: center;
+    margin: 8px 0 14px;
+}
+
+.auth-logo-box img {
+    height: 62px;
+    max-width: 240px;
+    object-fit: contain;
+}
+
+/* Đại sứ thương hiệu */
+.auth-ambassador-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.ambassador-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #111;
+}
+
+.ambassador-info span {
+    font-weight: 400;
+    color: #222;
+}
+
+.ambassador-sign img {
+    height: 52px;
+    object-fit: contain;
+}
+
+/* Thanh chuyển Tab viên thuốc ĐĂNG NHẬP / ĐĂNG KÝ */
+.auth-switch-tabs {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--primary-orange);
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #fff;
+}
+
+.auth-tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--primary-orange);
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.2s ease;
+}
+
+.auth-tab-btn.active {
+    background: var(--primary-orange);
+    color: #ffffff;
+}
+
+/* Ẩn/Hiện Form */
+.auth-form {
+    display: none;
+    flex-direction: column;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+/* Ô nhập liệu viền cam bo tròn */
+.auth-input-group {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border: 1px solid #f28a40;
+    border-radius: 10px;
+    padding: 0 12px;
+    background: #fff;
+    margin-bottom: 4px;
+}
+
+.auth-input-group.input-error {
+    border-color: #e53935;
+    background: #fff8f8;
+}
+
+.input-icon {
+    color: var(--primary-orange);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    min-width: 24px;
+}
+
+.req-star {
+    color: var(--primary-orange);
+    font-size: 13px;
+    margin-left: 2px;
+    top: -3px;
+}
+
+.auth-input-group input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    background: transparent;
+}
+
+.auth-input-group input::placeholder {
+    color: #b8b8b8;
+}
+
+.toggle-pwd-btn {
+    background: none;
+    border: none;
+    color: var(--primary-orange);
+    font-size: 17px;
+    cursor: pointer;
+    padding-left: 8px;
+}
+
+/* Thông báo lỗi bên dưới từng ô */
+.error-msg {
+    color: #e53935;
+    font-size: 11.5px;
+    min-height: 14px;
+    margin-bottom: 6px;
+    padding-left: 4px;
+}
+
+/* Độ mạnh mật khẩu */
+.pwd-strength-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #444;
+    margin: 2px 0 10px;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 6px;
+    flex: 1;
+}
+
+.strength-bars .bar {
+    height: 7px;
+    flex: 1;
+    background: #e0e0e0;
+    border-radius: 4px;
+    transition: background 0.25s ease;
+}
+
+.strength-bars .bar.active-weak { background: #ff5252; }
+.strength-bars .bar.active-medium { background: #ffa726; }
+.strength-bars .bar.active-strong { background: #2ecc71; }
+
+/* Dòng chữ xanh lưu ý tên ngân hàng */
+.bank-warning-note {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0066ff;
+    text-shadow: 0 0 8px rgba(0, 140, 255, 0.35);
+    margin: 2px 0 10px;
+}
+
+/* Checkbox xanh lá */
+.auth-checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #333;
+    cursor: pointer;
+    margin-top: 4px;
+    user-select: none;
+}
+
+.auth-checkbox-row input {
+    display: none;
+}
+
+.custom-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1.5px solid #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.auth-checkbox-row input:checked + .custom-check {
+    background: #00b300;
+    border-color: #00b300;
+    color: #fff;
+}
+
+.highlight-link {
+    color: var(--primary-orange);
+    font-style: normal;
+}
+
+/* Nút cam ĐĂNG NHẬP / ĐĂNG KÝ */
+.auth-submit-btn {
+    width: 78%;
+    height: 44px;
+    margin: 12px auto 14px;
+    background: linear-gradient(180deg, #f58536 0%, #ed6c1e 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #f9cdb0;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(243, 113, 36, 0.28);
+    cursor: pointer;
+}
+
+.auth-submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Liên kết phụ: Liên hệ CSKH, Chơi thử, Quên mật khẩu */
+.auth-sub-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.auth-sub-links.three-links {
+    justify-content: space-around;
+}
+
+.auth-sub-links.two-links {
+    gap: 45px;
+}
+
+.sub-link {
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Đường kẻ Đăng Nhập Nhanh / Đăng Ký Ràng Buộc */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #777;
+    font-size: 13.5px;
+    margin-bottom: 14px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    width: 48px;
+    height: 1px;
+    background: #bbb;
+}
+
+/* Nút Google & FaceID */
+.auth-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.social-circle-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.social-circle-btn img {
+    width: 23px;
+    height: 23px;
+}
+
+.face-id-btn {
+    color: var(--primary-orange);
+    font-size: 22px;
+}
+
+/* Banner Tải App dưới đáy */
+.auth-download-banner {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #fff5ed 0%, #fbd6bb 100%);
+    border: 1.5px solid #f49b56;
+    border-radius: 35px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.dl-icon-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #f89943 0%, #ec6c1a 100%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1.5px #f49b56;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dl-banner-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #e96b19;
+    padding: 0 4px;
+}
+
+.dl-banner-text strong {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.dl-banner-text span {
+    font-size: 10px;
+    margin-top: 2px;
+}

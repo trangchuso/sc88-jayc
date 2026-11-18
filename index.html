@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SC88 - Giao diện Trang Chủ</title>
+    <!-- Thư viện Icon Free FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Thư viện SwiperJS cho Banner trượt ngang -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- File CSS chính -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="images/herf.webp">
+</head>
+<body>
+
+    <!-- Khung hiển thị chính (Căn giữa trên PC, Full màn hình trên Mobile) -->
+    <div class="app-wrapper">
+
+        <!-- 1. THANH HEADER (Có ảnh nền thay thế trong CSS) -->
+        <header class="app-header">
+            <div class="header-left">
+                <!-- Có thể dùng thẻ img hoặc icon FontAwesome -->
+                <img src="images/icon_dt_1gd.webp" alt="Menu" class="header-icon-menu" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-table-cells-large fallback-icon" style="display:none;"></i>
+                
+            </div>
+
+            <div class="header-logo">
+                <img src="images/logo.webp" alt="SC88 Logo">
+            </div>
+
+            <div class="header-right">
+                
+                <img src="images/icon_topnav_xyzp.webp" alt="Vòng quay" class="header-wheel-img">
+            </div>
+        </header>
+
+        <!-- Nội dung cuộn dọc -->
+        <main class="app-content">
+
+            <!-- 2. BANNER TRƯỢT NGANG TỰ ĐỘNG (6 HÌNH ẢNH VÒNG LẶP) -->
+            <section class="banner-slider-section">
+                <div class="swiper mainBannerSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/banner1.webp" alt="Banner 1"></div>
+                        <div class="swiper-slide"><img src="images/banner2.webp" alt="Banner 2"></div>
+                        <div class="swiper-slide"><img src="images/banner3.webp" alt="Banner 3"></div>
+                        <div class="swiper-slide"><img src="images/banner4.webp" alt="Banner 4"></div>
+                        <div class="swiper-slide"><img src="images/banner5.webp" alt="Banner 5"></div>
+                        <div class="swiper-slide"><img src="images/banner6.webp" alt="Banner 6"></div>
+                    </div>
+                    <!-- Dấu chấm phân trang -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+
+            <!-- 3. THANH THÔNG BÁO CHẠY CHỮ -->
+            <section class="marquee-bar">
+                <div class="marquee-speaker">
+                    <img src="images/icon-speaker.png" alt="Loa" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                    <i class="fa-solid fa-bullhorn fallback-icon" style="display:none; color:#f37021;"></i>
+                </div>
+                <div class="marquee-viewport">
+                    <div class="marquee-text">
+                        Chào mừng Quý hội viên đến với chương trình ưu đãi đặc biệt: Giới thiệu bạn bè nhận ngay Rương Lì Xì trị giá 200K. Mời càng nhiều, thưởng càng lớn!
+                    </div>
+                </div>
+                <button class="btn-notice">
+                    <i class="fa-regular fa-comment-dots"></i> Thông Báo
+                    <span class="dot-badge"></span>
+                </button>
+            </section>
+
+            <!-- 4. KHU VỰC ĐĂNG KÝ / ĐĂNG NHẬP & ICON CHỨC NĂNG -->
+            <section class="user-action-bar">
+                <div class="auth-pill-group">
+                    <a href="#dangky" class="btn-pill-register">Đăng Ký</a>
+                    <a href="#dangnhap" class="btn-pill-login">Đăng Nhập</a>
+                </div>
+
+                <div class="quick-nav-list">
+                    <a href="#tintuc" class="quick-nav-item">
+                        <img src="images/tele.webp" alt="Tin Tức" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="icon-circle" style="display:none;"><i class="fa-solid fa-paper-plane"></i></span>
+                        <span>Tin Tức</span>
+                    </a>
+                    <a href="#vip" class="quick-nav-item">
+                        <img src="images/vip.webp" alt="VIP" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="icon-circle" style="display:none;"><i class="fa-solid fa-crown"></i></span>
+                        <span>VIP</span>
+                    </a>
+                    <a href="#moiban" class="quick-nav-item">
+                        <img src="images/mb.webp" alt="Mời Bạn" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="icon-circle" style="display:none;"><i class="fa-solid fa-users"></i></span>
+                        <span>Mời Bạn</span>
+                    </a>
+                    <a href="#daily" class="quick-nav-item">
+                        <img src="images/dl.webp" alt="Đại lý" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="icon-circle" style="display:none;"><i class="fa-solid fa-handshake"></i></span>
+                        <span>Đại lý</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 5. MENU DANH MỤC CUỘN NGANG -->
+            <section class="category-scroll-wrapper">
+                <div class="category-scroll-list" id="categoryScroll">
+                    <div class="category-tab active" data-category="hot">
+                        <img src="images/hot.webp" alt="Hot">
+                        <span>Hot</span>
+                    </div>
+                    <div class="category-tab" data-category="casino">
+                        <img src="images/casino.webp" alt="Casino">
+                        <span>Casino</span>
+                    </div>
+                    <div class="category-tab" data-category="nohu">
+                        <img src="images/slot.webp" alt="Nổ Hũ">
+                        <span>Nổ Hũ</span>
+                    </div>
+                    <div class="category-tab" data-category="blockchain">
+                        <img src="images/block.webp" alt="Blockchain">
+                        <span>Blockch...</span>
+                    </div>
+                    <div class="category-tab" data-category="banca">
+                        <img src="images/fish.webp" alt="Bắn Cá">
+                        <span>Bắn Cá</span>
+                    </div>
+                    <div class="category-tab" data-category="gamebai">
+                        <img src="images/gamecard.webp" alt="Game Bài">
+                        <span>Game Bài</span>
+                    </div>
+                    <div class="category-tab" data-category="thethao">
+                        <img src="images/sport.webp" alt="Thể Thao">
+                        <span>Thể Thao</span>
+                    </div>
+                    <div class="category-tab" data-category="thethao">
+                        <img src="images/cook.webp" alt="Đá Gà">
+                        <span>Đá Gà</span>
+                    </div>
+                    <div class="category-tab" data-category="thethao">
+                        <img src="images/like.webp" alt="Yêu Thích">
+                        <span>Yêu Thích</span>
+                    </div>
+                </div>
+                <button class="scroll-next-btn" id="scrollRightBtn" aria-label="Cuộn sang phải">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </section>
+
+            <!-- 6. LƯỚI DANH SÁCH GAME (3 CỘT) -->
+            <section class="game-grid-container">
+                
+                <!-- Hàng 1: Sảnh lớn (Casino / Thể thao) -->
+                <div class="game-card lobby-style">
+                    <div class="card-top-bar">
+                        <img src="images/sexy.avif" alt="Sexy" class="provider-logo">
+                    </div>
+                    <div class="card-thumb">
+                        <img src="images/1.avif" alt="CASINO SEXY">
+                    </div>
+                    <div class="card-title-bar">CASINO SEXY</div>
+                </div>
+
+                <div class="game-card lobby-style">
+                    <div class="card-top-bar">
+                        <img src="images/dg.avif" alt="DG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb">
+                        <img src="images/2.avif" alt="CASINO DG">
+                    </div>
+                    <div class="card-title-bar">CASINO DG</div>
+                </div>
+
+                <div class="game-card lobby-style">
+                    <div class="card-top-bar">
+                        <img src="images/saba.avif" alt="SABA" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb">
+                        <img src="images/3.avif" alt="THỂ THAO SABA">
+                    </div>
+                    <div class="card-title-bar">THỂ THAO SABA</div>
+                </div>
+
+                <!-- Hàng 2: Game Slot / Nổ Hũ -->
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/168.avif" alt="168G" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/4.avif" alt="Quyết Chiến Tiền Thưởng">
+                    </div>
+                    <div class="card-title-bar">Quyết Chiến Tiề...</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/168.avif" alt="168G" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/5.avif" alt="Kho Báu Aztec 2">
+                    </div>
+                    <div class="card-title-bar">Kho Báu Aztec 2</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/pg.avif" alt="PG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/6.avif" alt="Quyết Chiến Gi...">
+                    </div>
+                    <div class="card-title-bar">Quyết Chiến Gi...</div>
+                </div>
+
+                <!-- Hàng 3: Kho Báu Aztec & Đường Mạt Chược 1, 2 -->
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/pg.avif" alt="PG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/7.avif" alt="Kho Báu Aztec">
+                    </div>
+                    <div class="card-title-bar">Kho Báu Aztec</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/pg.avif" alt="PG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/8.avif" alt="Đường Mạt Chược">
+                    </div>
+                    <div class="card-title-bar">Đường Mạt Ch...</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/pg.avif" alt="PG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/9.avif" alt="Đường Mạt Chược 2">
+                    </div>
+                    <div class="card-title-bar">Đường Mạt Ch...</div>
+                </div>
+
+                <!-- Hàng 4: Các hãng khác (M, FC, PG) -->
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/king.avif" alt="M" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/10.avif" alt="Game M">
+                    </div>
+                    <div class="card-title-bar">Siêu Cấp Ace</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/fc.avif" alt="FC" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/11.avif" alt="Game FC">
+                    </div>
+                    <div class="card-title-bar">Chợ Đêm</div>
+                </div>
+
+                <div class="game-card slot-style">
+                    <div class="card-top-bar">
+                        <img src="images/best.avif" alt="Best" class="badge-best">
+                        <img src="images/pg.avif" alt="PG" class="provider-logo">
+                        <button class="fav-btn"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="card-thumb square-thumb">
+                        <img src="images/12.avif" alt="Neko May Mắn">
+                    </div>
+                    <div class="card-title-bar">Neko May Mắn</div>
+                </div>
+
+            </section>
+
+            <!-- Nút cuộn nhanh lên đầu trang (TOP) giống góc dưới Hình 3 -->
+            <button id="backToTopBtn" class="btn-back-to-top">
+                <span class="top-icon-circle"><i class="fa-solid fa-rocket"></i></span>
+                <span>TOP</span>
+            </button>
+        </main>
+
+        <!-- 7. BANNER NỔI BÊN PHẢI (ĐĂNG KÝ +68K, NẠP ĐẦU 50 TẶNG 50) -->
+        <div class="floating-promo-box">
+            <div class="floating-item">
+                <button class="close-float-btn" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+                <a href="#promo68k">
+                    <img src="images/dk.avif" alt="Đăng ký +68K">
+                </a>
+            </div>
+            <div class="floating-item">
+                <button class="close-float-btn" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+                <a href="#promo50">
+                    <img src="images/nap.avif" alt="Nạp đầu 50 tặng 50">
+                </a>
+            </div>
+        </div>
+
+        <!-- 8. THANH FOOTER ĐIỀU HƯỚNG (Có ảnh nền thay thế trong CSS) -->
+        <footer class="app-footer">
+            <a href="#home" class="footer-nav-item active">
+                <img src="images/nav-home.png" alt="Trang Chủ" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-house fallback-icon" style="display:none;"></i>
+                <span>Trang Chủ</span>
+            </a>
+            <a href="#promo" class="footer-nav-item">
+                <img src="images/nav-promo.png" alt="Khuyến Mãi" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-gift fallback-icon" style="display:none;"></i>
+                <span>Khuyến Mãi</span>
+            </a>
+            <a href="#demo" class="footer-nav-item">
+                <img src="images/nav-demo.png" alt="Chơi Thử" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-gamepad fallback-icon" style="display:none;"></i>
+                <span>Chơi Thử</span>
+            </a>
+            <a href="#cskh" class="footer-nav-item">
+                <img src="images/nav-cskh.png" alt="CSKH" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-headset fallback-icon" style="display:none;"></i>
+                <span>CSKH</span>
+            </a>
+            <a href="#register" class="footer-nav-item">
+                <img src="images/nav-register.png" alt="Đăng Ký" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+                <i class="fa-solid fa-user-plus fallback-icon" style="display:none;"></i>
+                <span>Đăng Ký</span>
+            </a>
+        </footer>
+        <!-- 9. MODAL FORM ĐĂNG NHẬP & ĐĂNG KÝ -->
+        <div class="auth-modal-overlay" id="authModal">
+            <div class="auth-modal-container">
+                
+                <!-- Nút mũi tên quay lại -->
+                <div class="auth-top-nav">
+                    <button type="button" class="auth-back-btn" id="closeAuthModal" aria-label="Quay lại">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- Logo SC88 -->
+                <div class="auth-logo-box">
+                    <img src="images/logo.webp" alt="SC88">
+                </div>
+
+                <!-- Thông tin Đại Sứ Thương Hiệu & Chữ ký -->
+                <div class="auth-ambassador-row">
+                    <div class="ambassador-info">
+                        <strong>Đại Sứ Thương Hiệu</strong>
+                        <strong>Năm 2026 - 2027</strong>
+                        <span>Marcelo Vieira</span>
+                    </div>
+                    <div class="ambassador-sign">
+                        <img src="images/chuky.avif" alt="Chữ ký" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                        <i class="fa-solid fa-signature" style="display:none; font-size: 38px; color: #333;"></i>
+                    </div>
+                </div>
+
+                <!-- Thanh chuyển đổi Tab ĐĂNG NHẬP / ĐĂNG KÝ -->
+                <div class="auth-switch-tabs">
+                    <button type="button" class="auth-tab-btn active" id="tabLoginBtn">ĐĂNG NHẬP</button>
+                    <button type="button" class="auth-tab-btn" id="tabRegisterBtn">ĐĂNG KÝ</button>
+                </div>
+
+                <!-- ================= FORM 1: ĐĂNG NHẬP ================= -->
+                <form id="loginForm" class="auth-form active" novalidate>
+                    <!-- Trường Tài khoản (6-20 ký tự) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-user"></i><sup class="req-star">*</sup></span>
+                        <input type="text" id="loginUsername" placeholder="Nhập Tên tài khoản (6-20 ký tự)" minlength="6" maxlength="20" required>
+                    </div>
+                    <p class="error-msg" id="loginUserErr"></p>
+
+                    <!-- Trường Mật khẩu (6-20 ký tự) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-lock"></i><sup class="req-star">*</sup></span>
+                        <input type="password" id="loginPassword" placeholder="Mật khẩu (6-20 ký tự)" minlength="6" maxlength="20" required>
+                        <button type="button" class="toggle-pwd-btn" data-target="loginPassword">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <p class="error-msg" id="loginPassErr"></p>
+
+                    <!-- Trường Số điện thoại thêm dưới trường Mật khẩu (Đúng 10 số) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-phone"></i><sup class="req-star">*</sup></span>
+                        <input type="tel" id="loginPhone" placeholder="Nhập Số điện thoại (10 số)" maxlength="10" inputmode="numeric" required>
+                    </div>
+                    <p class="error-msg" id="loginPhoneErr"></p>
+
+                    <!-- Ghi nhớ tài khoản -->
+                    <label class="auth-checkbox-row">
+                        <input type="checkbox" id="loginRemember" checked required>
+                        <span class="custom-check"><i class="fa-solid fa-check"></i></span>
+                        <span class="check-text">Ghi nhớ tài khoản mật khẩu</span>
+                    </label>
+                    <p class="error-msg" id="loginCheckErr"></p>
+
+                    <!-- Nút Submit Đăng Nhập -->
+                    <button type="submit" class="auth-submit-btn">ĐĂNG NHẬP</button>
+
+                    <!-- Liên kết phụ -->
+                    <div class="auth-sub-links three-links">
+                        <a href="#cskh" class="sub-link">Liên Hệ CSKH</a>
+                        <a href="#demo" class="sub-link">Chơi Thử</a>
+                        <a href="#forgot" class="sub-link">Quên Mật Khẩu</a>
+                    </div>
+
+                    <div class="auth-divider"><span>Đăng Nhập Nhanh</span></div>
+
+                    <div class="auth-social-row">
+                        <button type="button" class="social-circle-btn face-id-btn">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                        <button type="button" class="social-circle-btn google-btn">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        </button>
+                    </div>
+                </form>
+
+                <!-- ================= FORM 2: ĐĂNG KÝ ================= -->
+                <form id="registerForm" class="auth-form" novalidate>
+                    <!-- Trường Tài khoản (6-20 ký tự) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-user"></i><sup class="req-star">*</sup></span>
+                        <input type="text" id="regUsername" placeholder="Nhập Tên tài khoản (6-20 ký tự)" minlength="6" maxlength="20" required>
+                    </div>
+                    <p class="error-msg" id="regUserErr"></p>
+
+                    <!-- Trường Mật khẩu (6-20 ký tự) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-lock"></i><sup class="req-star">*</sup></span>
+                        <input type="password" id="regPassword" placeholder="Nhập mật khẩu (6-20 ký tự)" minlength="6" maxlength="20" required>
+                        <button type="button" class="toggle-pwd-btn" data-target="regPassword">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="error-msg" id="regPassErr"></p>
+
+                    <!-- Thanh độ mạnh mật khẩu -->
+                    <div class="pwd-strength-row">
+                        <span>Độ mạnh mật khẩu</span>
+                        <div class="strength-bars" id="strengthBars">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+
+                    <!-- Trường Họ và Tên thật -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-address-card"></i><sup class="req-star">*</sup></span>
+                        <input type="text" id="regFullName" placeholder="Vui lòng nhập Họ và Tên thật của bạn" required>
+                    </div>
+                    <p class="error-msg" id="regNameErr"></p>
+
+                    <!-- Trường Số điện thoại thêm dưới trường Họ tên (Đúng 10 số) -->
+                    <div class="auth-input-group">
+                        <span class="input-icon"><i class="fa-solid fa-phone"></i><sup class="req-star">*</sup></span>
+                        <input type="tel" id="regPhone" placeholder="Vui lòng nhập Số điện thoại (10 số)" maxlength="10" inputmode="numeric" required>
+                    </div>
+                    <p class="error-msg" id="regPhoneErr"></p>
+
+                    <div class="bank-warning-note">
+                        Họ tên phải đúng với tên thẻ ngân hàng để rút tiền!
+                    </div>
+
+                    <!-- Thỏa thuận người dùng -->
+                    <label class="auth-checkbox-row">
+                        <input type="checkbox" id="regAgree" checked required>
+                        <span class="custom-check"><i class="fa-solid fa-check"></i></span>
+                        <span class="check-text">Tôi trên 18 tuổi, đã đọc và đồng ý với <em class="highlight-link">《 Thỏa thuận đăng ký người dùng》</em></span>
+                    </label>
+                    <p class="error-msg" id="regCheckErr"></p>
+
+                    <!-- Nút Submit Đăng Ký -->
+                    <button type="submit" class="auth-submit-btn">ĐĂNG KÝ</button>
+
+                    <div class="auth-sub-links two-links">
+                        <a href="#cskh" class="sub-link">Liên Hệ CSKH</a>
+                        <a href="#demo" class="sub-link">Chơi Thử</a>
+                    </div>
+
+                    <div class="auth-divider"><span>Đăng Ký Ràng Buộc</span></div>
+
+                    <div class="auth-social-row">
+                        <button type="button" class="social-circle-btn google-btn">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Banner Tải App dưới đáy Form -->
+                <div class="auth-download-banner">
+                    <div class="dl-icon-circle">
+                        <i class="fa-brands fa-apple"></i>
+                    </div>
+                    <div class="dl-banner-text">
+                        <strong>TẢI APP THAM GIA KHÔNG LO BỊ CHẶN</strong>
+                        <span>TIỆN LỢI - AN TOÀN - MƯỢT MÀ HƠN</span>
+                    </div>
+                    <div class="dl-icon-circle">
+                        <i class="fa-brands fa-android"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Thư viện SwiperJS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- File Script chính -->
+    <script src="script.js"></script>
+</body>
+</html>
